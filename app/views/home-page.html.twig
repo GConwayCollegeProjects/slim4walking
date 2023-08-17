@@ -1,0 +1,33 @@
+{% extends 'layout.html.twig' %}
+
+{% block rightbox %}
+    <div class='site-home '>
+        <div class='form-container '>
+            <form>
+               <h2 class='options text-center'><strong>Options</strong></h2>
+              <div class='options panel-height overflow-auto'>
+                        <div  class = 'my-nav' id='routelist'  onclick='getOption(this.id)' style='background-color: var(--my-green) !important' >
+                        <div class='my-burger'> <a  id='def'><img width=30px height=30px src='../img/burger.png' alt=''></a>
+                        </div>
+                        <p>Add/Amend Routes</p>
+                        </div>
+                    <div  class = 'my-nav' id='userlist'  onclick='getOption(this.id)' style='background-color: var(--my-purple) !important' >
+                        <div class='my-burger'> <a  id='def'><img width=30px height=30px src='../img/burger.png' alt=''></a>
+                        </div>
+                        <p>Add/Amend Users</p>  
+                        </div>
+                    <div  class = 'my-nav' id='cohortlist'  onclick='getOption({{ url_for("cohortlist") }})' style='background-color: var(--my-orange) !important' >
+                        <div class='my-burger'> <a  id='def'><img width=30px height=30px src='../img/burger.png' alt=''></a>
+                        </div>
+                        <p>Add / Amend Cohorts</p>  
+                        </div>
+                    <div  class = 'my-nav' id='cohortlist'  onclick='getOption({{ url_for("cohortlist") }})' style='background-color: var(--my-orange) !important' >
+                        <div class='my-burger'> <a  id='def'><img width=30px height=30px src='../img/burger.png' alt=''></a>
+                        </div>
+                        <p>Add / Amend Anything</p>  
+                        </div>
+            </div>
+           </form>
+        </div>
+    </div>
+{% endblock %}

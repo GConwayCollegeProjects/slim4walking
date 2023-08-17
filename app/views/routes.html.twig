@@ -1,0 +1,259 @@
+{% extends 'layout.html.twig' %}
+{% block leftbox %}
+<div class="container leftblock">
+    <div class='container tabs '>
+        <!-- Nav tabs -->
+        <ul class='nav nav-tabs' role='tablist'>
+            <li class='nav-item disabled-tab'>
+                <a class='nav-link active' data-toggle='tab' id='#routes' href='#routes'>Routes</a>
+            </li>
+            <li class='nav-item disabled-tab'>
+                <a class='nav-link ' data-toggle='tab' id='#details' href='#details'>Details</a>
+            </li>
+            <li class='nav-item disabled-tab'>
+                <a class='nav-link' data-toggle='tab' id='#includes' href='#includes'>Includes</a>
+            </li>
+
+            <li class='nav-item disabled-tab'>
+                <a class='nav-link ' data-toggle='tab' id='#text' href='#text'>Text</a>
+            </li>
+            <li class='nav-item disabled-tab'>
+                <a class='nav-link' data-toggle='tab' id='#image' href='#image'>Image</a>
+            </li>
+            <li class='nav-item disabled-tab'>
+                <a class='nav-link' data-toggle='tab' id='#meet' href='#meet' >Meet</a>
+            </li>
+            <li class='nav-item disabled-tab'>
+                <a class='nav-link' data-toggle='tab' id='#map' href='#map' >Map</a>
+            </li>
+
+            <li class='nav-item disabled-tab'>
+                <a class='nav-link' data-toggle='tab' id='#pdf' href='#pdf' >PDF</a>
+            </li>
+         <li class='nav-item disabled-tab'>
+                <a class='nav-link' data-toggle='tab' id='#html' href='#html'>Preview</a>
+            </li>
+
+        </ul>
+        <!-- Tab panes -->
+        <!-- Tab panes -->
+        <!-- Start of Details Tab -->
+            <div id='tab-panes' class='tab-content nomargins'>
+
+                <div id="message"></div>
+
+    {#  Start Routes Tab#}
+
+        <div id='routes' class='container active tab-pane  nomargins'><br>
+
+            <label for="search" class='nomargins'>Route title: </label><br><input type='text' name='search' id='search'  placeholder='Search Route title (double click below to select)' size = '50' value=''><br>
+
+            <div style="min-height: 300px; width:80%; background-color: white; margin-top: .5em;"></div>
+
+            <button style="margin: .5em auto 0" onclick="showTab('#details')" >ADD NEW ROUTE</button>
+
+        </div>
+
+
+
+{#  Start Details Tab#}
+
+        <div id='details' class='container tab-pane  nomargins'><br>
+
+
+
+            <label for="title" class='nomargins'>Route title: </label><br><input type='text' name='title' id='title'  placeholder='Add Route title' size = '50' value='{{route.anything}}'><br>
+
+
+
+            <div class='row'>
+                <div class='col' style='max-width: 40%' ><label for='distance' class='nomargins'>Distance (miles):</label><br>
+                    <input id='distance' type='text' name='distance'  size = '20' placeholder='Add distance' value='{{route.distance}}'></div>
+
+                <div class='col' ><label for='ascent' class='nomargins'>Ascent (metres):</label><br><input id='ascent' type='text' name='ascent'  size = '20' placeholder='Add accumulated ascent' value='{{route.ascent}}'></div>
+
+            </div>
+            <label for='terrain' class='nomargins'>Terrain encountered:</label><br>
+            <div class='container'>
+                {% set counter = 1  %}
+                {% for tag in route.terrain %}
+                    {% set selected = false %}
+                    {% for article_tag in article[0].tags %}
+                        {% if article_tag.id == tag.id %}
+                            {% set selected = true %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if counter == 6 %}
+                    {{ '<br>' }}
+                    {% set counter = 1 %}
+                    {% endif %}
+                    <input type="checkbox" name={{ tag[0] }} value="{{ tag[0] }}" {% if selected %}checked{% endif %}> {{ tag[1] }}
+                    {% set counter = counter+1 %}
+                {% endfor %}
+            </div>
+
+            <label class='nomargins'>Grade:</label><br>
+            <div class='container'>
+                  {% for tag in route.grade %}
+                    {% set selected = false %}
+                    {% for article_tag in article[0].tags %}
+                        {% if article_tag.id == tag.id %}
+                            {% set selected = true %}
+                        {% endif %}
+                    {% endfor %}
+                    <input type="radio" name='grade' value="{{ tag[0] }}" {% if selected %}checked{% endif %}> {{ tag[1] }}
+                {% endfor %}
+
+            </div>
+            <label for='gridref' class='nomargins'>UK National Grid Reference: (map centre)</label><br><input type='text' name='gridref' id='gridref' placeholder='Add Grid Reference i.e. XX123456 (no other formats accepted)' size = '50' value={{ route.gridref}}><br>
+
+            <label for="notes" class='nomargins'>Cohort Notes: </label><br>
+            <textarea name='notes' id='notes'  rows=4 cols=50 placeholder='Special notes only visible to cohorts'>{{ route.notes}}</textarea>
+        </div>
+{#Start Includes Tab#}
+        <div id='includes' class='container tab-pane  nomargins' ><br>
+
+            <label for='preamble' class='nomargins'>Preamble:</label><br><textarea id='preamble' name='preamble' rows=4 cols=50 placeholder='Choose preamble or ignore, click to ADD / EDIT ---> '>{{ route.preamble}}</textarea><br>
+{#            <a id="preamble" href='#' onclick="updateRightBox(this.id,'text')"><img src='img\search.png' width='40px' style='display: inline' /></a><br>#}
+            <label for='footer' class='nomargins'>Footer: </label><br><textarea id='footer' name='footer' rows=4 cols=50 placeholder='Choose footer or ignore, click to ADD/EDIT  --->  '>{{ route.footer}}</textarea><br>
+{#            <a id="footer" href='#' onclick="updateRightBox(this.id,'text')"><img src='img\search.png' width='40px' style='display: inline' /></a><br>#}
+           <label class='nomargins'>Links: </label><br>
+            <input type='text' name='vr' id='vr'  placeholder='Enter or paste a View Ranger link or ignore' size = '50' value={{ route.vr}} ><br>
+            <input type='text' name='os' id='os'  placeholder='Enter or paste an OS Maps link or ignore' size = '50' value={{ route.os}}><br>
+            <input type='text' name='kt' id='kt'  placeholder='Enter or paste a Komoot link or ignore' size = '50' value={{ route.kt}}><br>
+       </div>
+
+{#   Start of Text Tab#}
+        <br>
+        <div id='text' class='container tab-pane  nomargins' >
+            <div class='btn-group btn-justified'>
+                <button class='btn btn-warning navbar-btn'>Clear</button>
+            </div>
+            <div id='text-container' class='container d-flex nomargins' >
+               <label for='rtext'></label><textarea id='rtext' rows=15 cols=50 placeholder='Click to ADD/EDIT  '>{{ route.rtext}}</textarea>
+           </div>
+        </div>
+
+{#  Start of Image Tab#}
+        <div id='image' class='container tab-pane fade nomargins'>
+            <label class='nomargins'>Image to be used:</label><br><input id='iFile' type='text' name='ifile'  size = '50' placeholder='No file selected' readonly value={{ route.ifile}} ><br>
+            <label class='nomargins'>Caption to be used:</label><br><input type='text' name='icaption' id='iCaption'  placeholder='Choose image - then add/amend caption as required' size = '50' value={{ route.icaption}} ><br>
+            <div id='iOutput' style='position:absolute; margin-top: 25px'></div>
+            <div id='iText3'>
+                <div id='iText1' class='itext'><strong>Either</strong><br>
+                    <label class='itext' >Select an image from your computer (.jpg, .jpeg or .png only)</label><input id='iEntry' type='file' name='i' accept='image/*' onchange='showUpload(this.name, this.value)' ><br></div>
+            <div id='iUpload' style='visibility: hidden; margin-top: 5px'><button  name='i' onclick='saveMedia(this.name)'>UPLOAD</button> to upload the selected image, (caption required first!).</div>
+            <p id='iText2' class='itext' ><strong>Or</strong><br>
+            <div id='iSelect' ><button name='i' onclick='fetchMedia(this.name)'>SELECT</button> from the images already saved in your account</div></div>
+        <div id='iClear' style='visibility: hidden; margin-top: 60px' ><button name='i' onclick='clearMedia(this.name)'>Clear</button> currently selected image choice.</div>
+    </div>
+
+{#  Start of Meet Tab#}
+    <div id='meet' class='container tab-pane fade nomargins'>
+        <label class='nomargins'>Location Name: </label><br><input type='text' name='loc_name' id='loc_name'  placeholder='Add NEW location name or click to search ---> ' size = '50' value={{ route.vr}} >
+        <a href='#'><img src='img\search.png' width='40px' style='display: inline' /></a><br>
+
+        <label class='nomargins'>Address</label><br>
+        <input type='text' name='loc_add1' id='loc_add1'  placeholder='Add first address line of location ' size = '50' ><br>
+        <input type='text' name='loc_add2' id='loc_add2'  placeholder='Add second address line of location ' size = '50' ><br>
+        <input type='text' name='loc_add3' id='loc_add3'  placeholder='Add third address line of location ' size = '50' ><br>
+        <input type='text' name='loc_town' id='loc_town'  placeholder='Select town of location ' size = '30' ><br>
+        <input type='text' name='loc_county' id='loc_county'  placeholder='Select UK county of location ' size = '30' ><br>
+        <div class='row'>
+            <div class='col'><input type='text' name='loc_postcode' id='loc_postcode'  placeholder='Add UK postcode ' size = '30' ></div>
+            <div class= 'col'><input type='text' name='loc_phone' id='loc_phone'  placeholder='Add contact phone number ' size = '20' ><br></div>
+        </div>
+
+        <input type='text' name='loc_google' id='loc_google'  placeholder='Google maps link' size = '50' >
+        <input type='text' name='loc_streetview' id='loc_streetview'  placeholder='Google Streetview link' size = '50' >
+        <input type='text' name='loc_url' id='loc_url'  placeholder='Venue URL ' size = '50' >
+        <input type='text' name='loc_weather' id='loc_weather'  placeholder='Weather URL' size = '50' >
+        <div class='row'>
+            <div class = 'col' style="max-width: 15em"><label class='nomargins'>What3Words Code: </label><br>
+                <input type='text' name='loc_what3words' id='loc_what3words'  placeholder='' size = '10' ></div>
+            <div class = 'col' style="max-width: 15em"><label class='nomargins'>UK Grid Ref: </label><br>
+                <input type='text' name='loc_osref' id='loc_osref'  placeholder='' size = '10' ></div>
+            <button style="max-height: 2em; width: 4em;margin-top: .5em;">SAVE</button>
+            <button style="max-height: 2em; width: 4em;margin-top: .5em;">CLEAR</button>
+
+        </div>
+
+
+    </div>
+{#  Start of Map Tab#}
+    <div id='map' class='container tab-pane fade nomargins'>
+        <label class='nomargins'>GPX file to be used:</label><br><input id='mFile' type='text' name='mfile'  size = '50' placeholder='No file selected' readonly>
+        <br>
+        <label class='nomargins'>Caption to be used:</label><br><input type='text' name='mcaption' id='mCaption'  placeholder='Choose GPX file then add/amend caption as required' size = '50' ><br>
+        <div id='mOutput' style='position:absolute; margin-top: 25px'></div>
+        <div id='mText3'>
+            <div id='mText1'><p class='itext'><strong>Either</strong><br>
+                <label class='itext' >Select an optional GPX file only</label><br><input id='mEntry' type='file' name='m' accept='.gpx' onchange='showUpload(this.name, this.value)' ></div><br>
+        <div id='mUpload' style='visibility: hidden; margin-top: 5px'><button  name='m' onclick='saveMedia(this.name)'>UPLOAD</button> to upload the selected GPX file, (caption required first!).</div>
+        <p id='mText2' class='itext' ><strong>Or</strong><br>
+        <div id='mSelect' ><button name='m' onclick='fetchMedia(this.name)'>SELECT</button> from the GPX files already saved in your account</div></div>
+    <div id='mClear' style='visibility: hidden; margin-top: 60px' ><button name='m' onclick='clearMedia(this.name)'>Clear</button> currently selected video choice.</div>
+</div>
+
+{#  Start of PDF Tab#}
+<div id='pdf' class='container tab-pane fade nomargins'>
+    <label class='nomargins'>PDF to be used:</label><br><input id='pFile' type='text' name='pfile'  size = '50' placeholder='No file selected' readonly>
+    <br>
+    <label class='nomargins'>Caption to be used:</label><br><input type='text' name='pcaption' id='pCaption'  placeholder='Choose PDF - then add/amend caption as required' size = '50' ><br>
+    <div id='pOutput' style='position:absolute; margin-top: 25px'></div>
+    <div id='pText3'>
+        <div id='pText1' class='itext'><strong>Either</strong><br>
+            <label class='itext' >Select a PDF file from your computer.</label><br><input id='pEntry' type='file' name='p' accept='.pdf' onchange='showUpload(this.name, this.value)' ></div><br>
+    <div id='pUpload' style='visibility: hidden; margin-top: 5px'><button  name='p' onclick='saveMedia(this.name)'>UPLOAD</button> to upload the selected PDF, (caption required first!).</div>
+    <p id='pText2' class='ptext' ><strong>Or</strong><br>
+    <div id='pSelect' ><button name='p' onclick='fetchMedia(this.name)'>SELECT</button> from the PDF's already saved in your account</div></div>
+<div id='pClear' style='visibility: hidden; margin-top: 60px' ><button name='p' onclick='clearMedia(this.name)'>Clear</button> currently selected PDF choice.</div>
+</div>
+{#  Start of Video Tab #}
+<div id='video' class='container tab-pane fade nomargins'>
+    <label class='nomargins'>Video to be used:</label><br><input id='vFile' type='text' name='ifile'  size = '50' placeholder='No file selected' readonly>
+    <br>
+    <label class='nomargins'>Caption to be used:</label><br><input type='text' name='icaption' id='vCaption'  placeholder='Choose video clip - then add/amend caption (required)' size = '50' ><br>
+    <div id='vOutput' style='position:absolute; margin-top: 25px'></div>
+    <div id='vText3'>
+        <div id='vText1' class='itext'><strong>Either</strong><br>
+            <label class='itext' >Select an optional video clip mp3 and mp4 formats only</label><input id='vEntry' type='file' name='v' accept='video/*' onchange='showUpload(this.name, this.value)' ><br></div>
+    <div id='vUpload' style='visibility: hidden; margin-top: 5px'><button  name='v' onclick='saveMedia(this.name)'>UPLOAD</button> to upload the selected video clip, (caption required first!).</div>
+    <p id='vText2' class='itext' ><strong>Or</strong><br>
+    <div id='vSelect' ><button name='v' onclick='fetchMedia(this.name)'>SELECT</button> from the video clips already saved in your account</div></div>
+<div id='vClear' style='visibility: hidden; margin-top: 60px' ><button name='v' onclick='clearMedia(this.name)'>Clear</button> currently selected video choice.</div>
+</div>
+
+
+{#  Start of HTML Tab#}
+<div id='html' class='container tab-pane fade nomargins' >
+    <label for='hText'></label><textarea id='hText' class='nomargins'></textarea>
+</div>
+
+
+</div>
+
+<!-- End of Main Tab Pane       -->
+<div id='message' class='message overflow-auto ' style='visibility: hidden; z-index: 99; position: absolute ; margin: 150px 100px; background-color: lightpink; color: black !important; border-style: solid; height: 200px; width: 300px;'><strong><p style='margin: auto auto;'></p></strong></div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block rightbox %}
+    <div class='site-home' id="routehome">
+        <h2 id='right_head' class='text-center'><strong>Route</strong> entry!</h2>
+        <section style="color: white; font-weight: bold; line-height: 2em">
+            <br>
+            This is where you enter details of routes for use by cohorts. Some sections are optional but the more information you can provide the more successful resulting cohorts are likely to be.
+
+            <br><br>
+
+            Fill in each page in turn of this multi-page dialogue and when you reach and are able to check the "Preview" page to see how your route will look when published, you will then have the opportunity to save the route and also publish it if relevant.
+
+        </section>
+
+    </div>
+
+
+{% endblock %}

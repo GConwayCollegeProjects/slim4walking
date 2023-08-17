@@ -1,0 +1,123 @@
+<?php
+
+$route_array =
+    [
+        'title' => '',
+        'distance' => '',
+        'ascent' => '',
+        'terrain' =>
+            [
+                array('tarmac','Tarmac',""),
+                array('rocky','Rocky',""),
+                array('scrambling','Scrambling',""),
+                array('steep','Steep',""),
+                array('open access','Open Access',""),
+                array('easy','Easy',""),
+                array('narrow edges','Narrow Edges',""),
+                array('wet','Wet',""),
+                array('challenging','Challenging',"")
+            ],
+        'grade' =>
+            [
+                array('1','Easy', ""),
+                array('2','Easy/Moderate', ""),
+                array('3','Moderate+', ""),
+                array('4','Strenuous', ""),
+                array('5','Extreme', ""),
+            ],
+        'gridrefs' =>
+            [
+                'NA',
+                'NB',
+                'NC',
+                'ND',
+                'NF',
+                'NG',
+                'NH',
+                'NJ',
+                'NK',
+                'NL',
+                'NM',
+                'NN',
+                'NO',
+                'NR',
+                'NS',
+                'NT',
+                'NU',
+                'NW',
+                'NX',
+                'NY',
+                'NZ',
+                'SC',
+                'SD',
+                'SE',
+                'SH',
+                'SJ',
+                'SK',
+                'SM',
+                'SN',
+                'SO',
+                'SP',
+                'SR',
+                'SS',
+                'ST',
+                'SU',
+                'SV',
+                'SW',
+                'SX',
+                'SY',
+                'SZ',
+                'TA',
+                'TF',
+                'TG',
+                'TL',
+                'TM',
+                'TQ',
+                'TR',
+                'TV',
+            ],
+        'gridref' => '',
+		'notes' => '',
+		'preamble' => '',
+		'footer' => '',
+		'vr' => '',
+		'os' => '',
+		'kt' => '',
+		'rtext' => '',
+		'ifile' => '',
+		'icaption' => '',
+		'location' =>
+			[
+			'loc_id' => '',
+			'loc_name' => '',
+			'loc_add1' => '',
+			'loc_add2' => '',
+			'loc_add3' => '',
+			'loc_town' => '',
+			'loc_county' => '',
+			'loc_postcode' => '',
+			'loc_phone' => '',
+			'loc_google' => '',
+			'loc_streetview' => '',
+			'loc_url' => '',
+			'loc_weather' => '',
+			'loc_what3words' => '',
+			'loc_osref' => '',
+			],
+		'mfile' => '',
+		'mcaption' => '',
+		'pfile' => '',
+		'pcaption' => '',
+		'vfile' => '',
+		'vcaption' => '',
+		'htext' => '',
+        
+
+
+    ];
+
+define('ROUTE_ARRAY', $route_array);
+
+//var_dump(ROUTE_ARRAY);
+
+

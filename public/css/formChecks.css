@@ -1,0 +1,11 @@
+input[name=name]{
+	text-transform: capitalize;
+	
+}
+input[name=mail]{
+	text-transform: lowercase;
+	
+}
+
+
+

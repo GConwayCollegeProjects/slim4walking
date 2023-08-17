@@ -1,0 +1,24 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block rightbox %}
+    <div class='site-home'>
+        <div class='form-container'>
+            <div class='image-holder'></div>
+            <form action="{{url_for('processregistration')}}" method='post' name=register' id='register' autocomplete='off' >
+                <h2 class='text-center'><strong>Register</strong> today!</h2>
+                <div class='form-group'><label for='rname'>Enter FULL name:<input class='form-control' type='text' name = 'name'  id ='rname' onblur ='setScreen()' minlength = '5' maxlength = '50'  title= 'Enter Full Name - only letters a-z allowed' autocomplete='new-password'></label></div>
+                <div class='form-group'><label for='rscreen' >Enter unique screen name:<input class='form-control' type='text' name = 'screen'  id ='rscreen' onblur ='checkScreen()' minlength = '5' maxlength = '20'  title= 'Enter Screen Name - only letters and numbers allowed without spaces' autocomplete='new-password'></label></div>
+                <div class='form-group'><label for='remail' >Enter personal email address:<input class='form-control' type='text' name = 'email'  id ='remail' onblur ='checkEmail()' minlength = '5' maxlength = '50'  title= 'Enter Email Address - only lowercase letters, numbers, @, - and . symbols allowed without spaces' autocomplete='new-password'></label></div>
+                <div class='form-group'><label for='rpass' >Enter password 5-10 characters:<input class='form-control' type='password' name = 'pass' id ='rpass' onblur ='checkPassword()' minlength = '5' maxlength = '10' title= 'Enter Password, this is case sensitive so remember it EXACTLY!' autocomplete='new-password'></label></div>
+                <div class='form-group'><label for='rrepeat' >Re-enter chosen password:<input class='form-control' type='password' name = 'pass-repeat' id ='rrepeat' onblur='checkRepeat()' minlength = '5' maxlength = '10'  title= 'Repeat EXACTLY as above. ' autocomplete='new-password'></label></div>
+                <div class='form-group'><div class='form-check'><label for='rcbox'><input class='form-check-input' type='checkbox' name=checkbox' id='rcbox' title='This must be ticked to proceed!'>
+                        </label>I agree to the<a href = 'lib/terms.html'> Terms of Use.</a> To find out what personal data we collect and how we use it, please visit our<a href =  'lib/privacy.html'> Privacy Policy.</a></div></div>
+                <div class='form-group'><button class='btn btn-primary btn-block' type='submit' id='rsubmit' >Complete Registration</button></div>
+                <div class='already'>Already registered?<a  href='javascript:fillRightbox(2)'><strong>Login here</strong></a></div>
+            </form>
+
+        </div>
+    </div>";
+
+{% endblock %}

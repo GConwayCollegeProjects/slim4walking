@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/adminCSS.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/image-picker.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/colors3.css">
+
+    <style>
+        .tabs li { width: 63px;}
+    </style>
+    <link rel="stylesheet" href="css/formChecks.css">
+    <title>Title</title>
+</head>
+<body >
+<!--Start of Outside Box-->
+<div id="outside-container" class ="bigbox d-flex container " >
+    <!--    Start of Top Container-->
+    <div id="top-container" class = "topbox container d-flex row "  >
+<!-- Start of Search box -->
+        <div id='mysearch'>
+            <!--    start of search -->
+            <!-- Start of search row-->
+
+
+            <!--  Flag Widget-->
+            <div  id="default"  class="container nomargins">
+                <img class="my-widgets flag nomargins" src="flags/UJ.png" alt="">
+            </div>
+            <!-- Home Widget -->
+
+
+            <a id = 'homepage' onclick=getOption(this.id)><img id = "home" class="my-widgets" src="img/home.png" ) /></a>
+
+
+            <div class="heading"><h1>Cohortology Administration</h1></div>
+
+
+            <!--    Start of user-->
+
+            <!--End of User Panel-->
+
+
+        </div>
+
+        <!-- End of Search box -->
+<!--     <?php include("../private/assets/views/include/search.php"); ?> -->
+        <!--    Start of main box-->
+        <div id="main-container" class="mainbox row container d-flex" >
+            <!--    start of Left Block-->
+            <div id="left-container" class = "leftbox d-flex container col" >
+
+                <!--    // start of left-box toggable tabs nav and content-->
+                <div >
+                    {% block leftbox %}{% endblock %}
+                </div>
+                <!---    // ^ END OF TOGGABLE TABS-->
+            </div>
+            <!--    End of left block-->
+
+
+            <!--    Start of Right Block -->
+            <!--    -->
+
+            <div id="right-container" class = "rightbox container d-flex col " >
+                <!-- Start of menu / entry options-->
+                <div class="container">
+                    {% block rightbox %}{% endblock %}
+                </div>
+            </div>
+            <!--    End of Right Box-->
+
+
+
+
+        </div>
+        <!--    End of Main Container -->
+
+
+
+        <!--    -->
+        <!--    -->
+        <!--    END of Menu / Entry Options-->
+
+
+    </div>
+</div>
+<!--End of Outside container-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.tiny.cloud/1/k0a77hfh9uryhtf52x82yjfz4tu70ynrtk6iwnsmrkqoglzp/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="js/adminJS.js"></script>
+<script src="js/myMedia.js"></script>
+<script src="js/myForms.js"></script>
+</body>
+
+</html>

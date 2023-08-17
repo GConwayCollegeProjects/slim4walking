@@ -1,0 +1,645 @@
+.heading{
+    position: absolute;
+    margin-left: 200px;
+}
+/* Start of Outside Box CSS*/
+.bigbox {
+    width:99%; ;
+    background: url('../img/pdnpa-map.png') ;
+    border: dotted;
+    margin:5px auto 0 auto;
+    z-index: 1;
+    height:600px !important;
+}
+
+/* Start of Top Box CSS*/
+.topbox {
+    max-width:99% !important;
+    margin:5px auto !important ;
+    
+    padding: 0;
+    height: 70px!important;
+    background-color: #7d8285 ;
+    border-style: solid ;
+    position: relative;
+
+}
+
+.searchicon {
+    position: absolute;
+    margin: 16px 0 0 65%
+    
+}
+
+
+#home{
+    margin: 15px 0 0 60px;
+    position: absolute;
+    
+}
+
+#flag {
+    
+    position:absolute;
+    float: left ;
+    height: 30px ;
+    margin: 5px 5px 20px 0;
+    padding: 0;
+}
+
+#default {
+    max-width: 70px;
+    position: absolute;
+    
+}
+#searchdiv {
+    
+    display: inline-block;
+    position:absolute;
+    height: 10px;
+    margin: 0 0 20px 10% ;
+    padding: 0 0 0 0;
+
+}
+
+#searchdiv input{
+    margin:16px 0 20px 50px;
+    max-width: 80% !important;
+    flex: auto;
+}
+
+#user-panel {
+    margin: 15px 0 0 80%;
+    position: absolute;
+    color: white;
+    
+}
+#user-panel .my-widgets{
+    margin: 0 0 0 95%;
+    position: absolute;
+
+}
+
+
+
+.my-widgets{
+
+  border-radius: 0;
+  height: 35px;
+  padding-right: 20px;
+
+}
+.widget{
+
+
+  padding-right: 5px;
+  padding-left: 5px;
+
+}
+
+.footer-widget{
+
+  padding: 0;
+  margin: 0;
+}
+
+
+
+#homediv {
+    
+    padding: 0 20px 0 0;
+    margin: 0 0 0 0;
+    
+}
+
+
+.mainbox {
+
+    height:500px !important;
+
+    margin: 75px auto 0 auto ;
+    position: absolute;
+    border-style: none;
+
+
+}
+
+/* Start of Left Box CSS*/
+.leftbox {
+    z-index: 1 ;
+    height: 500px;
+
+    width: 80% !important;
+    position: relative;
+    margin: 0 0 0 0;
+    padding: 0;
+    float:left;
+}
+/*  Posting Selector & My Postings box CSS*/
+
+.postingbox {
+    min-height: 500px;
+    
+    margin: 10% auto;
+}
+
+.mypostings {
+    min-height: 300px;
+    
+}
+
+.pselector {
+    max-width: 50%;
+    
+    margin: 20px auto;
+    min-height: 30%;
+    
+
+}
+
+.pselect {
+    font-size: larger;
+
+    
+}
+
+/* End of Left Box CSS */
+
+.cropper {
+    visibility: visible;
+    border-style: none;
+    width: 75%;
+    height: auto;
+    position: absolute;
+
+}
+
+/* Start of Rightbox CSS */
+.rightbox {
+
+    z-index: 3 ;
+    height: 500px;
+    max-width: 40% !important;
+    background-color: #7d8285 ;
+    padding: 0;
+    position: relative;
+    margin: 0 0 0 0;
+    float: right !important;
+}
+
+.leftblock {
+    background: lightgray;
+    height: 500px;
+
+}
+
+
+
+
+.site-home a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.site-home a:visited {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.site-home a:hover {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.site-home a:active {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.user-panel {
+    
+    margin: 5px 0 0 90%;
+    
+    padding: 0;
+    
+    position: absolute;
+    
+    
+    
+    color: white;
+    
+    
+}
+
+.user-panel a:link, a:visited, a:hover, a:active {
+    color: white;
+    text-decoration: underline;
+    
+}
+
+.pchooser  {
+    margin: auto auto;
+
+    
+}
+
+
+.select option, .select{
+    -webkit-appearance: none;
+    -moz-appearance : none;
+
+
+}
+
+
+
+
+
+.site-home {
+    margin: auto auto;
+    padding: 0;
+    
+}
+
+
+
+.site-home .form-group {
+    margin-bottom: 3px !important ;
+    
+}
+
+
+.site-home .form-container{
+  margin: 0 0;
+  padding: 0;
+  min-width: 250px;
+
+}
+
+.site-home .form-container .my-nav {
+     margin: 0;
+    padding: 0;
+    height: 83px !important;
+    width: 90% !important;
+    text-align: center
+}
+
+
+
+.site-home form{
+   z-index: 4;
+  position:relative;
+ 
+  
+  
+}
+
+
+
+.site-home .rightbox{
+  max-height: 450px ;
+  
+
+}
+
+@media (max-width:991px) {
+  .site-home form {
+   
+  }
+}
+
+
+.site-home form .form-control{
+  background-color: #f7f9fc ;
+  margin: 0;
+  padding: 0 0 -20px 0;
+  border: none;
+  border-bottom: 1px solid #dfe7f1;
+  border-radius: 0;
+  /*border-color: #4e555b;*/
+  width: 280px;
+  box-shadow: none;
+  outline: none;
+  color: black;
+  text-indent: 6px;
+  height: 30px ;
+  z-index:6;
+  position:relative;
+  
+}
+
+.dt{
+    background-color: #f7f9fc ;
+    margin: 0;
+    padding: 0 0 -20px 0;
+    border: none;
+    border-bottom: 1px solid #dfe7f1;
+    border-radius: 0;
+    width: 280px;
+    box-shadow: none;
+    outline: none;
+    color: black;
+    text-indent: 6px;
+    height: 30px ;
+    z-index:6;
+    position:relative;
+
+}
+
+.site-home form button {
+    margin: 0;
+    
+    
+}
+.site-home form .form-group label{
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+.nname {
+
+    height: 40px !important;
+}
+
+
+.site-home form .form-check {
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.site-home form .btn-primary {
+  background: #f4476b;
+  border: none;
+  border-radius: 4px;
+  padding: 0;
+  box-shadow: none;
+  margin-top: 5px;
+  text-shadow: none;
+  outline: none !important;
+}
+
+.site-home form .btn-primary:hover, .site-home form .btn-primary:active {
+  background: #eb3b60;
+}
+
+.site-home form .btn-primary:active {
+  transform: translateY(1px);
+}
+
+.site-home form .already {
+    margin-top: 20px;
+  display: block;
+  text-align: center;
+  
+ 
+}
+
+
+.site-home .panel-height {
+  max-height: 419px;
+  max-width: 300px;
+}
+
+
+#reglink{
+  
+  margin: 0 25px 0 0;
+  padding: 0;
+ position:absolute;
+
+}
+
+
+
+
+
+
+.my-button{
+  background-color: var(--my-blue);
+  color: var(--my-text);
+
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.my-button p{
+
+  font-size: 11px;
+  height: 6px;
+  padding: 3px;
+
+
+
+
+}
+
+#maps{
+
+
+  width:100%;
+  text-align:center;
+  font-size: 0; /* to close gap between inline elements of child */
+
+}
+
+#searchbox {
+  display: inline-block;
+  height: 25px;
+  width: 75%;
+}
+
+.navbar .navbar p{
+  color: darkgrey !important;
+  font-family: "Comic Sans MS", serif !important;
+  font-weight: bold !important;
+  text-align: justify;
+
+}
+
+.my-nav p{
+  color: blue !important;
+  font-family: Kalam, serif !important;
+  font-weight: bold !important;
+  font-size: larger;
+  display: inline-block;
+  position: relative;
+  z-index: 9;
+}
+
+
+.my-burger img{
+    width:30px;
+    height:30px;
+    
+    
+    
+}
+
+.my-search {
+  padding-left: 8%;
+  padding-top: 20px;
+
+}
+
+
+/* Cropper css starts here*/
+
+img {
+
+  display: block;
+
+  max-width: 100%;
+
+}
+
+.preview {
+
+  overflow: hidden;
+
+  width: 160px;
+
+  height: 160px;
+
+  margin: 10px;
+
+  border: 1px solid red;
+
+}
+
+.modal-lg{
+
+  max-width: 1000px !important;
+
+}
+
+/* Cropper css ends here*/
+
+
+#cropper {
+  visibility: hidden;
+  position:absolute;
+  height: 700px;
+  width: 800px;
+  z-index: 9;
+
+}
+
+
+  
+  /* Bootstrap nav layout starts here */
+  
+  .nav-item a{
+      display: inline-block;
+      float:none;
+      text-align: center;
+      
+  }
+  
+  .nomargins {
+      margin: 0;
+      padding: 0;
+  }
+  
+  #tiny2 {
+     width: 80%;
+     margin: 0;
+     padding: 0;
+     height:50vh;
+    
+      
+  }
+  
+  #tiny {
+     width: 80%;
+     height: 40vh;
+     z-index: 3;
+     margin: 0;
+     padding: 0;
+      
+  }
+  
+
+
+
+  #text-container {
+      z-index: 2 ;
+      margin: 0 0 0  ;
+      padding: 0 ;
+      width: 580px;
+
+      
+  }
+  
+  /* Bootstrap nav layout end here */
+  
+  
+  #fileSelect {
+      color: black !important;
+      
+  }
+  
+.nav-tabs{
+     width: 605px;
+    text-align: justify;
+
+ }
+ 
+ .nav-tabs after{
+             content: '';
+        display: inline-block;
+        width: 100%;
+ }
+.nav-link{
+    padding: 0;
+    margin: 0 5px 0 0;
+    width: 60px !important;
+    overflow: hidden;
+    
+ }
+ 
+ .nav-item{
+      display: inline-block;
+ }
+
+.nav-link:hover{
+    color:grey;
+
+}
+.nav {
+ text-align: justify;
+}
+
+.tabs {
+    text-align: justify;
+
+}
+
+#message{
+    color: white;
+    background-color: red;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+}
+
+#host{
+    margin: auto;
+
+}
+
+.disabled-tab {
+    pointer-events: none;
+}
+
+.active-tab {
+
+    pointer-events: all;
+}
